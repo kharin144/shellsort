@@ -1,6 +1,15 @@
-#!/bin/python3
+#!/usr/bin/python
 
-iarray = [10, 5, 8, 7, 6, 9, 4, 3, 2, 1, 0, -1]
+import sys
+
+# iarray = [10, 5, 8, 7, 6, 9, 4, 3, 2, 1, 0, -1]
+
+if( len(sys.argv) < 2 ):
+    exit(1)
+
+iarray = sys.argv[1:]
+for i in range(len(iarray)):
+    iarray[i] = int(iarray[i])
 
 i = 0
 sum = 1
@@ -11,13 +20,9 @@ while sum < len(iarray):
     i += 1
 
 # Inverting steps
-steps_length = len(steps)
-for i in range(steps_length // 2):
-    steps[i], steps[steps_length - 1 - i] = steps[steps_length - 1 - i], steps[i]
+steps.reverse()
 
-# steps = [5, 3, 2, 1]
-
-assert steps, [5, 3, 2, 1]
+# assert steps, [5, 3, 2, 1]
 
 # Ascending Shell sort
 for i in steps:
